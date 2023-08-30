@@ -1,15 +1,22 @@
 import React, { useState } from "react";
+import './Child.css';
+const Child = ({ changeM, modal}) => {
 
-const Child = ({modal}) => {
+    let [n, setN] = useState(true);
 
-    let [click, setClick] = useState(true);
-
-    function handleClick(){
-        modal(setClick);
+    function handel(e) {
+        e.preventDefault();
+        changeM(n);
     }
-
-    return(
-        <div><button onSubmit={handleClick}></button></div>
+    // setN(false);
+    return (
+        <div className="child">
+            <h3>Child Component</h3>
+            <button onClick={handel}>Show Modal</button>
+            {modal ? <><div>Modal Contain</div>
+                <p>This is Content</p>  </>
+                : null}
+        </div>
     )
 }
 
