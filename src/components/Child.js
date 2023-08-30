@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import './Child.css';
-const Child = ({ changeM, modal}) => {
+const Child = ({ changeM, modal }) => {
 
     let [n, setN] = useState(true);
 
-    function handel(e) {
-        e.preventDefault();
+    function handel() {
         changeM(n);
     }
     // setN(false);
     return (
         <div className="child">
-            <h3>Child Component</h3>
+            <h2>Child Component</h2>
             <button onClick={handel}>Show Modal</button>
-            {modal ? <><div>Modal Contain</div>
-                <p>This is Content</p>  </>
+            {modal ? <><h3>Modal Content</h3>
+                <p>This is the modal content</p>  </>
                 : null}
         </div>
     )
